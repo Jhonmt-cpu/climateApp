@@ -1,4 +1,5 @@
 class AppStrings {
+  static const String appName = 'Weather App';
   static const String degrees = '°';
   static const String celsiusDegrees = '°C';
   static const String wind = 'Vento';
