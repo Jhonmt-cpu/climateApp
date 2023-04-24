@@ -6,6 +6,7 @@ import 'package:climate_app/app/utils/icon_from_weather_condition.dart';
 import 'package:climate_app/modules/home/components/weather_forecast.dart';
 import 'package:climate_app/modules/home/components/weather_badge.dart';
 import 'package:climate_app/modules/home/models/weather_response_model.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -178,11 +179,20 @@ class _HomePageState extends State<HomePage> {
       isLoading = true;
     });
 
-    final response = await WeatherRepository().getWeather();
+    try {
+      final response = await WeatherRepository().getWeather();
 
-    setState(() {
-      weatherResponse = response;
-      isLoading = false;
-    });
+      setState(() {
+        weatherResponse = response;
+        isLoading = false;
+      });
+    } catch (e) {
+      if (kDebugMode) {
+        print(e);
+      }
+      setState(() {
+        isLoading = false;
+      });
+    }
   }
 }
