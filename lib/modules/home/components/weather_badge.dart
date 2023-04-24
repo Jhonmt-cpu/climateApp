@@ -6,7 +6,7 @@ import 'package:flutter_svg/svg.dart';
 
 enum BadgeType {
   wind,
-  rain,
+  humidity,
 }
 
 class WeatherBadge extends StatelessWidget {
@@ -31,9 +31,9 @@ class WeatherBadge extends StatelessWidget {
         title = AppStrings.wind;
         metric = AppStrings.windSpeed;
         break;
-      case BadgeType.rain:
-        asset = AppAssets.rain;
-        title = AppStrings.rain;
+      case BadgeType.humidity:
+        asset = AppAssets.humidity;
+        title = AppStrings.humidity;
         metric = AppStrings.percentage;
         break;
     }
